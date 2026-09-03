@@ -34,7 +34,7 @@ footer{background:#061a3b;color:#b9c9dd;padding:25px 0;font-size:12px}
 <h2 class="title">配送依頼フォーム</h2>
 <p class="lead">内容を確認後、担当者よりご連絡いたします。</p>
 
-<form id="requestForm">
+<form id="requestForm" novalidate>
 <div class="grid">
 <div class="field"><label>会社名・屋号</label><input name="会社名・屋号" type="text" placeholder="例：株式会社〇〇"></div>
 <div class="field"><label>お名前<span class="required">必須</span></label><input name="お名前" type="text" required placeholder="例：山田 太郎"></div>
@@ -66,7 +66,13 @@ document.getElementById("requestForm").addEventListener("submit", async function
   e.preventDefault();
 
   const form = this;
+if (!form.checkValidity()) {
 
+  form.reportValidity();
+
+  return;
+
+}
   const fd = new FormData(form);
 
   const v = (...names) => {
