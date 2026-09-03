@@ -57,15 +57,15 @@ footer{background:#061a3b;color:#b9c9dd;padding:25px 0;font-size:12px}
 </div>
 
 <div class="note">※ 送信前に入力内容をご確認ください。正式な料金・対応可否は、配送内容を確認したうえでご案内します。</div>
-<div class="submit"><button type="submit">配送を依頼・相談する</button></div>
+<div class="submit"><button type="button" id="requestSubmit">配送を依頼・相談する</button></div>
 </form>
 <script>
 
-document.getElementById("requestForm").addEventListener("submit", async function(e){
+document.getElementById("requestSubmit").addEventListener("click", async function(){
 
-  e.preventDefault();
 
-  const form = this;
+
+  const form = document.getElementById("requestForm");
 if (!form.checkValidity()) {
 
   form.reportValidity();
