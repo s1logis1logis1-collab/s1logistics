@@ -81,4 +81,113 @@ footer{background:#061a3b;color:#b9c9dd;padding:28px 0;font-size:12px}
 
 <div class="back"><a href="../index.html">← S1LOGISTICS会社HPへ戻る</a></div>
 <footer><div class="wrap">S1LOGISTICS｜協力会社募集　　© 2026 S1LOGISTICS</div></footer>
-</body></html>
+
+
+<section id="partnerApply" style="padding:60px 20px;background:#f5f8fc;">
+
+<div style="max-width:800px;margin:auto;background:#fff;padding:30px;border-radius:16px;">
+
+<h2 style="text-align:center;color:#0b2f63;">協力会社 応募フォーム</h2>
+
+<form id="partnerForm">
+
+<p>会社名・屋号</p>
+
+<input name="会社名・屋号" type="text" style="width:100%;padding:14px;margin-bottom:15px;">
+
+<p>お名前 <span style="color:red;">必須</span></p>
+
+<input name="お名前" type="text" required style="width:100%;padding:14px;margin-bottom:15px;">
+
+<p>電話番号 <span style="color:red;">必須</span></p>
+
+<input name="電話番号" type="tel" required style="width:100%;padding:14px;margin-bottom:15px;">
+
+<p>メールアドレス <span style="color:red;">必須</span></p>
+
+<input name="メールアドレス" type="email" required style="width:100%;padding:14px;margin-bottom:15px;">
+
+<p>保有車両</p>
+
+<input name="保有車両" type="text" placeholder="例：軽バン3台、軽冷蔵車1台" style="width:100%;padding:14px;margin-bottom:15px;">
+
+<p>対応可能エリア</p>
+
+<input name="対応可能エリア" type="text" placeholder="例：千葉県・東京都" style="width:100%;padding:14px;margin-bottom:15px;">
+
+<p>お問い合わせ内容</p>
+
+<textarea name="お問い合わせ内容" rows="5" style="width:100%;padding:14px;margin-bottom:20px;"></textarea>
+
+<div style="text-align:center;">
+
+<button type="submit" style="padding:16px 35px;background:#0b2f63;color:white;border:0;border-radius:8px;font-size:18px;">
+
+応募・お問い合わせを送信する
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</section>
+<script>
+
+const partnerForm = document.getElementById("partnerForm");
+
+partnerForm.addEventListener("submit", async function(e) {
+
+  e.preventDefault();
+
+  const button = partnerForm.querySelector('button[type="submit"]');
+
+  button.disabled = true;
+
+  button.textContent = "送信中...";
+
+  const formData = new FormData(partnerForm);
+
+  const data = Object.fromEntries(formData.entries());
+
+  data.formType = "partner";
+
+  try {
+
+    await fetch("https://script.google.com/macros/s/AKfycbyc0UwZVAh1b8eSZShUiLLudo3-vLO9F6VzmkVnnbPV4rUTcmjk3maguw2WOwQwDdYV6Q/exec", {
+
+      method: "POST",
+
+      mode: "no-cors",
+
+      headers: {
+
+        "Content-Type": "text/plain;charset=utf-8"
+
+      },
+
+      body: JSON.stringify(data)
+
+    });
+
+    alert("協力会社への応募・お問い合わせを送信しました。担当者よりご連絡いたします。");
+
+    partnerForm.reset();
+
+  } catch (error) {
+
+    alert("送信できませんでした。お電話にてお問い合わせください。");
+
+  } finally {
+
+    button.disabled = false;
+
+    button.textContent = "応募・お問い合わせを送信する";
+
+  }
+
+});
+
+</script></body></html>
