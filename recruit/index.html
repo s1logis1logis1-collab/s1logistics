@@ -95,11 +95,235 @@ footer{background:#071b3e;color:#b9c9df;padding:28px 0;font-size:12px}.foot{disp
 <details><summary>車を持っていなくても働けますか？</summary><p>車両リースについてご相談いただけます。</p></details>
 </div></section>
 
-<section class="cta" id="apply"><div class="wrap">
-<h2>まずはお気軽にご応募ください！</h2><p>面談では、仕事内容・報酬・勤務時間・案件内容などを詳しくご説明します。</p>
-<div class="ctaPhone">☎ 080-3597-6440</div><p>受付時間 8:00〜18:00</p>
-<div class="btns" style="justify-content:center"><a class="btn white" href="tel:08035976440">電話で応募</a><a class="btn" style="background:#18a94b;color:#fff" href="tel:08035976440">LINE・お問い合わせ</a></div>
-</div></section>
+<section id="cta">
+
+  <div class="wrap">
+
+    <h2>まずはお気軽にご応募ください！</h2>
+
+    <p>面談では、仕事内容・報酬・勤務時間・案件内容などを詳しくご説明します。</p>
+
+    <div class="formbox" style="margin-top:30px;">
+
+      <h3 style="font-size:26px;margin-bottom:18px;">求人応募フォーム</h3>
+
+      <form id="recruitForm">
+
+        <div class="formgrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+
+          <div>
+
+            <label>お名前 <span style="color:#d33;">必須</span></label>
+
+            <input name="お名前" type="text" required style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+
+          </div>
+
+          <div>
+
+            <label>年齢</label>
+
+            <input name="年齢" type="number" min="18" style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+
+          </div>
+
+          <div>
+
+            <label>電話番号 <span style="color:#d33;">必須</span></label>
+
+            <input name="電話番号" type="tel" required style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+
+          </div>
+
+          <div>
+
+            <label>メールアドレス <span style="color:#d33;">必須</span></label>
+
+            <input name="メールアドレス" type="email" required style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+
+          </div>
+
+          <div>
+
+            <label>配送経験</label>
+
+            <select name="配送経験" style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+
+              <option value="">選択してください</option>
+
+              <option>未経験</option>
+
+              <option>経験あり</option>
+
+            </select>
+
+          </div>
+
+          <div>
+
+            <label>車両の有無</label>
+
+            <select name="車両の有無" style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+
+              <option value="">選択してください</option>
+
+              <option>車両あり</option>
+
+              <option>車両なし・リース相談希望</option>
+
+            </select>
+
+          </div>
+
+          <div>
+
+            <label>希望案件</label>
+
+            <select name="希望案件" style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+
+              <option value="">選択してください</option>
+
+              <option>大手宅配</option>
+
+              <option>企業配送</option>
+
+              <option>軽冷蔵・冷凍配送</option>
+
+              <option>チャーター配送</option>
+
+              <option>スポット配送</option>
+
+              <option>相談して決めたい</option>
+
+            </select>
+
+          </div>
+
+          <div>
+
+            <label>希望稼働日数</label>
+
+            <input name="希望稼働日数" type="text" placeholder="例：週5日" style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+
+          </div>
+
+          <div style="grid-column:1/-1;">
+
+            <label>ご質問・ご相談</label>
+
+            <textarea name="ご質問・ご相談" rows="5" style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;" placeholder="勤務開始希望日、働き方の希望など"></textarea>
+
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:24px;">
+
+          <button type="submit" class="btn blueBtn">応募内容を送信する</button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+    <div style="text-align:center;margin-top:30px;">
+
+      <p style="font-size:14px;">お電話での応募も受け付けています。</p>
+
+      <div class="ctaPhone">☎ 080-3597-6440</div>
+
+      <p>受付時間 8:00〜18:00</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+
+document.getElementById("recruitForm").addEventListener("submit", async function(e){
+
+  e.preventDefault();
+
+  const form = this;
+
+  const fd = new FormData(form);
+
+  const data = {
+
+    type: "recruit",
+
+    name: fd.get("お名前") || "",
+
+    age: fd.get("年齢") || "",
+
+    phone: fd.get("電話番号") || "",
+
+    email: fd.get("メールアドレス") || "",
+
+    experience: fd.get("配送経験") || "",
+
+    vehicle: fd.get("車両の有無") || "",
+
+    desiredJob: fd.get("希望案件") || "",
+
+    workDays: fd.get("希望稼働日数") || "",
+
+    message: fd.get("ご質問・ご相談") || ""
+
+  };
+
+  const button = form.querySelector('button[type="submit"]');
+
+  button.disabled = true;
+
+  button.textContent = "送信中...";
+
+  try {
+
+    await fetch(
+
+      "https://script.google.com/macros/s/AKfycbyc0UwZVAh1b8eSZShUiLLudo3-vLO9F6VzmkVnnbPV4rUTcmjk3maguw2WOwQwDdYV6Q/exec",
+
+      {
+
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+
+          "Content-Type": "text/plain;charset=utf-8"
+
+        },
+
+        body: JSON.stringify(data)
+
+      }
+
+    );
+
+    alert("求人応募を送信しました。担当者よりご連絡いたします。");
+
+    form.reset();
+
+  } catch (error) {
+
+    alert("送信できませんでした。お電話にてお問い合わせください。");
+
+  } finally {
+
+    button.disabled = false;
+
+    button.textContent = "応募内容を送信する";
+
+  }
+
+});
+
+</script>
 
 <section><div class="wrap company"><div class="sectionHead"><div class="icon">🏢</div><div><div class="blueText">COMPANY</div><h2 class="sectionTitle">会社概要</h2></div></div>
 <div class="row"><div>会社名</div><div>合同会社S1LOGISTICS</div></div><div class="row"><div>事業内容</div><div>軽貨物運送（宅配・チャーター・ルート配送・スポット配送 等）</div></div><div class="row"><div>電話番号</div><div>080-3597-6440</div></div><div class="row"><div>営業時間</div><div>8:00〜18:00</div></div><div class="row"><div>対応エリア</div><div>千葉県・東京都を中心にご相談に応じます</div></div>
