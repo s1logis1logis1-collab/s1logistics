@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>配送依頼・お問い合わせ｜S1LOGISTICS</title>
+<meta name="description" content="S1LOGISTICSへの配送依頼フォーム。宅配・チャーター・企業配送・ルート配送・スポット配送など、お気軽にご相談ください。">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Yu Gothic",sans-serif;color:#12264a;background:#f4f8fc;line-height:1.7}
+a{text-decoration:none;color:inherit}.wrap{width:min(1050px,92%);margin:auto}
+header{background:#fff;box-shadow:0 2px 12px #001b3d18}.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:26px;font-weight:950;font-style:italic;color:#09265f}.logo b{color:#138ee2}
+.btn{display:inline-block;padding:12px 20px;border-radius:7px;font-weight:900}.blue{background:#0759a9;color:#fff}
+.hero{background:linear-gradient(135deg,#08285c,#0873c7);color:#fff;padding:60px 0}.tag{font-size:13px;letter-spacing:2px;color:#75c5ff;font-weight:950}.hero h1{font-size:clamp(35px,5vw,58px);line-height:1.15;margin:8px 0}.hero p{font-size:17px;color:#e8f2ff;max-width:720px}
+.main{padding:55px 0 80px}.formbox{background:#fff;border-radius:15px;padding:38px;box-shadow:0 10px 35px #062f6815}.title{font-size:30px;margin:0 0 8px}.lead{color:#637187;margin-top:0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.full{grid-column:1/-1}.field label{display:block;font-weight:900;margin-bottom:6px}.required{font-size:11px;background:#0759a9;color:#fff;border-radius:4px;padding:2px 6px;margin-left:6px}.field input,.field select,.field textarea{width:100%;padding:13px;border:1px solid #ccd7e5;border-radius:7px;font-size:16px;background:#fff}.field textarea{min-height:130px;resize:vertical}
+.note{margin-top:22px;padding:15px;background:#f2f7fc;border-radius:8px;color:#5f6d82;font-size:13px}.submit{margin-top:28px;text-align:center}.submit button{border:0;cursor:pointer;font-size:16px;padding:15px 45px;border-radius:8px;background:#138ee2;color:#fff;font-weight:950}
+.tel{text-align:center;margin-top:30px;padding-top:25px;border-top:1px solid #e0e7ef}.tel strong{display:block;font-size:30px;color:#0759a9}.back{text-align:center;margin:25px}.back a{text-decoration:underline;color:#0759a9;font-weight:900}
+footer{background:#061a3b;color:#b9c9dd;padding:25px 0;font-size:12px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.formbox{padding:25px}.nav{height:64px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="../index.html">S1<b>LOGISTICS</b></a>
+<a class="btn blue" href="../index.html">会社HPへ戻る</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+<div class="tag">DELIVERY REQUEST</div>
+<h1>配送依頼・物流相談</h1>
+<p>宅配・チャーター・企業配送・ルート配送・スポット配送など、配送に関するご相談はこちらから。まずは分かる範囲でご入力ください。</p>
+</div></section>
+
+<main class="main"><div class="wrap"><div class="formbox">
+<h2 class="title">配送依頼フォーム</h2>
+<p class="lead">内容を確認後、担当者よりご連絡いたします。</p>
+
+<form id="requestForm">
+<div class="grid">
+<div class="field"><label>会社名・屋号</label><input name="会社名・屋号" type="text" placeholder="例：株式会社〇〇"></div>
+<div class="field"><label>お名前<span class="required">必須</span></label><input name="お名前" type="text" required placeholder="例：山田 太郎"></div>
+
+<div class="field"><label>電話番号<span class="required">必須</span></label><input name="電話番号" type="tel" required placeholder="例：090-1234-5678"></div>
+<div class="field"><label>メールアドレス<span class="required">必須</span></label><input name="メールアドレス" type="email" required placeholder="例：example@email.com"></div>
+
+<div class="field"><label>ご依頼内容<span class="required">必須</span></label>
+<select name="ご依頼内容" required><option value="">選択してください</option><option>チャーター配送</option><option>企業配送</option><option>ルート配送</option><option>スポット配送</option><option>宅配</option><option>冷蔵・冷凍配送</option><option>その他</option></select></div>
+
+<div class="field"><label>ご希望の配送日</label><input name="ご希望の配送日" type="date"></div>
+
+<div class="field"><label>集荷先</label><input name="集荷先" type="text" placeholder="例：東京都〇〇区"></div>
+<div class="field"><label>配送先</label><input name="配送先" type="text" placeholder="例：千葉県市川市"></div>
+
+<div class="field"><label>荷物の内容・個数</label><input name="荷物の内容・個数" type="text" placeholder="例：段ボール10個"></div>
+<div class="field"><label>希望時間</label><input name="希望時間" type="text" placeholder="例：10:00〜12:00"></div>
+
+<div class="field full"><label>ご相談・ご要望</label><textarea name="ご相談・ご要望" placeholder="配送条件、車両サイズ、納品条件などをご記入ください"></textarea></div>
+</div>
+
+<div class="note">※ 送信前に入力内容をご確認ください。正式な料金・対応可否は、配送内容を確認したうえでご案内します。</div>
+<div class="submit"><button type="submit">配送を依頼・相談する</button></div>
+</form>
+<script>
+document.getElementById("requestForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const data = new FormData(this);
+  let text = "【S1LOGISTICS 配送依頼】%0A";
+  for (const [k,v] of data.entries()) text += encodeURIComponent(k + "：") + encodeURIComponent(v) + "%0A";
+  const subject = encodeURIComponent("S1LOGISTICS 配送依頼");
+  // LINE/メール連携を後から設定できるよう、現段階では電話での確認を案内
+  alert("お問い合わせ内容を受け付けました。正式な送信先設定後は、このフォームから直接送信できるようにできます。\n\nお急ぎの場合：080-3597-6440");
+});
+</script>
+
+<div class="tel">お急ぎの場合はお電話でも承ります。<strong>080-3597-6440</strong><small>受付時間 8:00〜18:00</small></div>
+</div></div></main>
+
+<div class="back"><a href="../index.html">← S1LOGISTICS会社HPへ戻る</a></div>
+<footer><div class="wrap">S1LOGISTICS｜配送依頼・物流相談　© 2026 S1LOGISTICS</div></footer>
+</body>
+</html>
