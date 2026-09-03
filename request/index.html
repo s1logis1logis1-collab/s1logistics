@@ -60,15 +60,103 @@ footer{background:#061a3b;color:#b9c9dd;padding:25px 0;font-size:12px}
 <div class="submit"><button type="submit">配送を依頼・相談する</button></div>
 </form>
 <script>
-document.getElementById("requestForm").addEventListener("submit", function(e){
+
+document.getElementById("requestForm").addEventListener("submit", async function(e){
+
   e.preventDefault();
-  const data = new FormData(this);
-  let text = "【S1LOGISTICS 配送依頼】%0A";
-  for (const [k,v] of data.entries()) text += encodeURIComponent(k + "：") + encodeURIComponent(v) + "%0A";
-  const subject = encodeURIComponent("S1LOGISTICS 配送依頼");
-  // LINE/メール連携を後から設定できるよう、現段階では電話での確認を案内
-  alert("お問い合わせ内容を受け付けました。正式な送信先設定後は、このフォームから直接送信できるようにできます。\n\nお急ぎの場合：080-3597-6440");
+
+  const form = this;
+
+  const fd = new FormData(form);
+
+  const v = (...names) => {
+
+    for (const name of names) {
+
+      if (fd.get(name)) return fd.get(name);
+
+    }
+
+    return "";
+
+  };
+
+  const data = {
+
+    type: "delivery",
+
+    company: v("会社名・屋号", "会社名"),
+
+    name: v("お名前", "氏名", "名前"),
+
+    phone: v("電話番号", "TEL"),
+
+    email: v("メールアドレス", "メール"),
+
+    deliveryType: v("ご依頼内容", "依頼内容"),
+
+    deliveryDate: v("ご希望の配送日", "希望の配送日", "配送希望日"),
+
+    pickup: v("集荷先"),
+
+    destination: v("配送先"),
+
+    cargo: v("荷物の内容・個数", "荷物の内容・数量"),
+
+    time: v("希望時間"),
+
+    message: v("ご相談・ご要望", "相談・ご要望")
+
+  };
+
+  const button = form.querySelector('button[type="submit"]');
+
+  button.disabled = true;
+
+  button.textContent = "送信中...";
+
+  try {
+
+    await fetch(
+
+      "https://script.google.com/macros/s/AKfycbyc0UwZVAh1b8eSZShUiLLudo3-vLO9F6VzmkVnnbPV4rUTcmjk3maguw2WOwQwDdYV6Q/exec",
+
+      {
+
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+
+          "Content-Type": "text/plain;charset=utf-8"
+
+        },
+
+        body: JSON.stringify(data)
+
+      }
+
+    );
+
+    alert("配送依頼を送信しました。担当者よりご連絡いたします。");
+
+    form.reset();
+
+  } catch (error) {
+
+    alert("送信できませんでした。お電話にてお問い合わせください。");
+
+  } finally {
+
+    button.disabled = false;
+
+    button.textContent = "配送を依頼・相談する";
+
+  }
+
 });
+
 </script>
 
 <div class="tel">お急ぎの場合はお電話でも承ります。<strong>080-3597-6440</strong><small>受付時間 8:00〜18:00</small></div>
