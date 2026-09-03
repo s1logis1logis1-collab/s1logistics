@@ -152,9 +152,8 @@ footer{background:#071b3e;color:#b9c9df;padding:28px 0;font-size:12px}.foot{disp
 
           <div>
 
-            <label>配送経験</label>
-
-            <select name="配送経験" style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+            <label>配送経験 <span style="color:#d33;">必須</span></label>
+            <select name="配送経験" required style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
 
               <option value="">選択してください</option>
 
@@ -168,9 +167,9 @@ footer{background:#071b3e;color:#b9c9df;padding:28px 0;font-size:12px}.foot{disp
 
           <div>
 
-            <label>車両の有無</label>
+           <label>車両の有無 <span style="color:#d33;">必須</span></label>
 
-            <select name="車両の有無" style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+          <select name="車両の有無" required style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
 
               <option value="">選択してください</option>
 
@@ -184,9 +183,9 @@ footer{background:#071b3e;color:#b9c9df;padding:28px 0;font-size:12px}.foot{disp
 
           <div>
 
-            <label>希望案件</label>
+            <label>希望案件 <span style="color:#d33;">必須</span></label>
 
-            <select name="希望案件" style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+           <select name="希望案件" required style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
 
               <option value="">選択してください</option>
 
@@ -208,12 +207,18 @@ footer{background:#071b3e;color:#b9c9df;padding:28px 0;font-size:12px}.foot{disp
 
           <div>
 
-            <label>希望稼働日数</label>
+            <label>希望稼働日数 <span style="color:#d33;">必須</span></label>
 
-            <input name="希望稼働日数" type="text" placeholder="例：週5日" style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+            <input name="希望稼働日数" type="text" required placeholder="例：週5日"  style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
 
           </div>
+<div>
+<div>
+  <label>稼働開始希望日 <span style="color:#d33;">必須</span></label>
 
+  <input name="稼働開始希望日" type="date" required style="width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;">
+
+</div>
           <div style="grid-column:1/-1;">
 
             <label>ご質問・ご相談</label>
